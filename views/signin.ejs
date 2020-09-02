@@ -1,0 +1,29 @@
+<%- include('./header.ejs') %>
+
+<div class="container my-5 py-5">
+    <div class="col-md-5 m-auto text-center">
+        <form action="handleSignin" method="POST">
+
+            <div class="form-group">
+                <input placeholder="Enter email" value="<%= oldInputs.email %>" name="email" type="email" class="form-control">
+            </div>
+            <div class="form-group">
+                <input placeholder="confirm Password" name="password" value="<%= oldInputs.password %>" type="password" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-info w-100">SignIn</button>
+        </form>
+        <% if (MessageError.find(e=>e.param=='incorrect')) { %>
+            <div class="alert alert-danger text-center" role="alert">
+               incorrect password
+             </div>
+        <% } %>
+
+        <% if (MessageError.find(e=>e.param=='notRegisered')) { %>
+            <div class="alert alert-danger text-center" role="alert">
+               user not found
+             </div>
+        <% } %>
+    </div>
+</div>
+
+<%- include('./footer.ejs') %>

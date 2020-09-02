@@ -1,0 +1,21 @@
+<%- include('./header.ejs') %>
+
+
+<form action="/handleeditNote/<%= note._id %>" method="POST">
+    <div class="modal-dialog">
+      <div class="modal-content">
+       
+        <div class="modal-body">
+          <input placeholder="Type Title" name="title" value="<%= note.title %>" class="form-control" type="text">
+          <textarea class="form-control my-2" placeholder="Type your note" name="desc" id="" cols="30"
+            rows="10"> <%= note.desc %> </textarea>
+        </div>
+        <div class="modal-footer">
+          <a type="button"  href="/home" class="btn btn-secondary" data-dismiss="modal">cancel</a>
+          <button type="submit" class="btn btn-info"><i class="fas fa-plus-circle"></i> Edit Note</button>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <%- include('./footer.ejs') %>
